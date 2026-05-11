@@ -7,8 +7,10 @@ public class AppointmentCriteria {
 
 	private String id;
 	private String reason;
-	private Date dateTime;
+	private Date dateFrom;
+	private Date dateTo;
 	private String patientId;
+	private String appointmentStatusId;
 	
 	public AppointmentCriteria() {
 		
@@ -30,12 +32,20 @@ public class AppointmentCriteria {
 		this.reason = reason;
 	}
 
-	public Date getDateTime() {
-		return dateTime;
+	public Date getDateFrom() {
+		return dateFrom;
 	}
 
-	public void setDateTime(Date dateTime) {
-		this.dateTime = dateTime;
+	public void setDateFrom(Date dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	public Date getDateTo() {
+		return dateTo;
+	}
+
+	public void setDateTo(Date dateTo) {
+		this.dateTo = dateTo;
 	}
 
 	public String getPatientId() {
@@ -46,9 +56,17 @@ public class AppointmentCriteria {
 		this.patientId = patientId;
 	}
 
+	public String getAppointmentStatusId() {
+		return appointmentStatusId;
+	}
+
+	public void setAppointmentStatusId(String appointmentStatusId) {
+		this.appointmentStatusId = appointmentStatusId;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(dateTime, id, patientId, reason);
+		return Objects.hash(appointmentStatusId, dateFrom, dateTo, id, patientId, reason);
 	}
 
 	@Override
@@ -60,15 +78,16 @@ public class AppointmentCriteria {
 		if (getClass() != obj.getClass())
 			return false;
 		AppointmentCriteria other = (AppointmentCriteria) obj;
-		return Objects.equals(dateTime, other.dateTime) && Objects.equals(id, other.id)
-				&& Objects.equals(patientId, other.patientId) && Objects.equals(reason, other.reason);
+		return Objects.equals(appointmentStatusId, other.appointmentStatusId)
+				&& Objects.equals(dateFrom, other.dateFrom) && Objects.equals(dateTo, other.dateTo)
+				&& Objects.equals(id, other.id) && Objects.equals(patientId, other.patientId)
+				&& Objects.equals(reason, other.reason);
 	}
 
 	@Override
 	public String toString() {
-		return "AppointmentCriteria [id=" + id + ", reason=" + reason + ", dateTime=" + dateTime + ", patientId="
-				+ patientId + "]";
+		return "AppointmentCriteria [id=" + id + ", reason=" + reason + ", dateFrom=" + dateFrom + ", dateTo=" + dateTo
+				+ ", patientId=" + patientId + ", appointmentStatusId=" + appointmentStatusId + "]";
 	}
-	
-	
+
 }

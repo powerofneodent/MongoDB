@@ -10,7 +10,10 @@ public class AppointmentDTO {
 	@BsonId
 	private String id;
 	private String reason;
-	private Date dateTime;
+	private Date dateFrom;
+	private Date dateTo;
+	private String statusId;
+	private String status;
 	private String patientId;
 	private String patientName;
 	private String patientSurname1;
@@ -21,7 +24,7 @@ public class AppointmentDTO {
 	private String patientDniNie;
 	private String patientEmail;
 	private String patientPhoneNumber;
-	private String patientAddres;
+	
 	
 	
 	public AppointmentDTO() {
@@ -29,9 +32,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public String getId() {
 		return id;
 	}
+
 
 
 	public void setId(String id) {
@@ -39,9 +44,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public String getReason() {
 		return reason;
 	}
+
 
 
 	public void setReason(String reason) {
@@ -49,14 +56,53 @@ public class AppointmentDTO {
 	}
 
 
-	public Date getDateTime() {
-		return dateTime;
+
+	public Date getDateFrom() {
+		return dateFrom;
 	}
 
 
-	public void setDateTime(Date dateTime) {
-		this.dateTime = dateTime;
+
+	public void setDateFrom(Date dateFrom) {
+		this.dateFrom = dateFrom;
 	}
+
+
+
+	public Date getDateTo() {
+		return dateTo;
+	}
+
+
+
+	public void setDateTo(Date dateTo) {
+		this.dateTo = dateTo;
+	}
+
+
+
+	public String getStatusId() {
+		return statusId;
+	}
+
+
+
+	public void setStatusId(String statusId) {
+		this.statusId = statusId;
+	}
+
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 
 
 	public String getPatientId() {
@@ -64,9 +110,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientId(String patientId) {
 		this.patientId = patientId;
 	}
+
 
 
 	public String getPatientName() {
@@ -74,9 +122,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientName(String patientName) {
 		this.patientName = patientName;
 	}
+
 
 
 	public String getPatientSurname1() {
@@ -84,9 +134,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientSurname1(String patientSurname1) {
 		this.patientSurname1 = patientSurname1;
 	}
+
 
 
 	public String getPatientSurname2() {
@@ -94,9 +146,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientSurname2(String patientSurname2) {
 		this.patientSurname2 = patientSurname2;
 	}
+
 
 
 	public Date getPatientBirthDate() {
@@ -104,9 +158,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientBirthDate(Date patientBirthDate) {
 		this.patientBirthDate = patientBirthDate;
 	}
+
 
 
 	public String getPatientAlergy() {
@@ -114,9 +170,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientAlergy(String patientAlergy) {
 		this.patientAlergy = patientAlergy;
 	}
+
 
 
 	public String getPatientHabit() {
@@ -124,9 +182,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientHabit(String patientHabit) {
 		this.patientHabit = patientHabit;
 	}
+
 
 
 	public String getPatientDniNie() {
@@ -134,9 +194,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientDniNie(String patientDniNie) {
 		this.patientDniNie = patientDniNie;
 	}
+
 
 
 	public String getPatientEmail() {
@@ -144,9 +206,11 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientEmail(String patientEmail) {
 		this.patientEmail = patientEmail;
 	}
+
 
 
 	public String getPatientPhoneNumber() {
@@ -154,26 +218,20 @@ public class AppointmentDTO {
 	}
 
 
+
 	public void setPatientPhoneNumber(String patientPhoneNumber) {
 		this.patientPhoneNumber = patientPhoneNumber;
 	}
 
 
-	public String getPatientAddres() {
-		return patientAddres;
-	}
-
-
-	public void setPatientAddres(String patientAddres) {
-		this.patientAddres = patientAddres;
-	}
-
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dateTime, id, patientAddres, patientAlergy, patientBirthDate, patientDniNie, patientEmail,
-				patientHabit, patientId, patientName, patientPhoneNumber, patientSurname1, patientSurname2, reason);
+		return Objects.hash(dateFrom, dateTo, id, patientAlergy, patientBirthDate, patientDniNie, patientEmail,
+				patientHabit, patientId, patientName, patientPhoneNumber, patientSurname1, patientSurname2, reason,
+				status, statusId);
 	}
+
 
 
 	@Override
@@ -185,28 +243,30 @@ public class AppointmentDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		AppointmentDTO other = (AppointmentDTO) obj;
-		return Objects.equals(dateTime, other.dateTime) && Objects.equals(id, other.id)
-				&& Objects.equals(patientAddres, other.patientAddres)
-				&& Objects.equals(patientAlergy, other.patientAlergy)
+		return Objects.equals(dateFrom, other.dateFrom) && Objects.equals(dateTo, other.dateTo)
+				&& Objects.equals(id, other.id) && Objects.equals(patientAlergy, other.patientAlergy)
 				&& Objects.equals(patientBirthDate, other.patientBirthDate)
 				&& Objects.equals(patientDniNie, other.patientDniNie)
 				&& Objects.equals(patientEmail, other.patientEmail) && Objects.equals(patientHabit, other.patientHabit)
 				&& Objects.equals(patientId, other.patientId) && Objects.equals(patientName, other.patientName)
 				&& Objects.equals(patientPhoneNumber, other.patientPhoneNumber)
 				&& Objects.equals(patientSurname1, other.patientSurname1)
-				&& Objects.equals(patientSurname2, other.patientSurname2) && Objects.equals(reason, other.reason);
+				&& Objects.equals(patientSurname2, other.patientSurname2) && Objects.equals(reason, other.reason)
+				&& Objects.equals(status, other.status) && Objects.equals(statusId, other.statusId);
 	}
+
 
 
 	@Override
 	public String toString() {
-		return "AppointmentDTO [id=" + id + ", reason=" + reason + ", dateTime=" + dateTime + ", patientId=" + patientId
-				+ ", patientName=" + patientName + ", patientSurname1=" + patientSurname1 + ", patientSurname2="
-				+ patientSurname2 + ", patientBirthDate=" + patientBirthDate + ", patientAlergy=" + patientAlergy
-				+ ", patientHabit=" + patientHabit + ", patientDniNie=" + patientDniNie + ", patientEmail="
-				+ patientEmail + ", patientPhoneNumber=" + patientPhoneNumber + ", patientAddres=" + patientAddres
-				+ "]";
+		return "AppointmentDTO [id=" + id + ", reason=" + reason + ", dateFrom=" + dateFrom + ", dateTo=" + dateTo
+				+ ", statusId=" + statusId + ", status=" + status + ", patientId=" + patientId + ", patientName="
+				+ patientName + ", patientSurname1=" + patientSurname1 + ", patientSurname2=" + patientSurname2
+				+ ", patientBirthDate=" + patientBirthDate + ", patientAlergy=" + patientAlergy + ", patientHabit="
+				+ patientHabit + ", patientDniNie=" + patientDniNie + ", patientEmail=" + patientEmail
+				+ ", patientPhoneNumber=" + patientPhoneNumber + "]";
 	}
-	
-	
+
+
+
 }

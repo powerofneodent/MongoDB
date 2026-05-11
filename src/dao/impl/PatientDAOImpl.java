@@ -13,11 +13,19 @@ import com.mongodb.client.model.Updates;
 import criteria.PatientCriteria;
 import dao.PatientDAO;
 import model.PatientDTO;
+import util.MongoDBConnection;
 import util.Results;
 
 public class PatientDAOImpl implements PatientDAO {
 	
 	public MongoCollection<PatientDTO> patients = null;
+	
+	
+
+	public PatientDAOImpl() {
+		super();
+		patients = MongoDBConnection.getDatabase().getCollection("patients", PatientDTO.class);
+	}
 
 	@Override
 	public PatientDTO findById(String id) throws Exception {
