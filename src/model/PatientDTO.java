@@ -21,8 +21,8 @@ public class PatientDTO {
 	private String addres;
 	private String localityId;
 	private String localityName;
-	private String countryId;
-	private String countryName;
+	private String provinceId;
+	private String provinceName;
 	
 	public void PatienDTO() {
 		
@@ -133,24 +133,24 @@ public class PatientDTO {
 	}
 
 	public String getCountryId() {
-		return countryId;
+		return provinceId;
 	}
 
 	public void setCountryId(String countryId) {
-		this.countryId = countryId;
+		this.provinceId = countryId;
 	}
 
 	public String getCountryName() {
-		return countryName;
+		return provinceName;
 	}
 
 	public void setCountryName(String countryName) {
-		this.countryName = countryName;
+		this.provinceName = countryName;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(addres, alergy, birthDate, countryId, countryName, dniNie, email, habit, id, localityId,
+		return Objects.hash(addres, alergy, birthDate, provinceId, provinceName, dniNie, email, habit, id, localityId,
 				localityName, name, phoneNumber, surname1, surname2);
 	}
 
@@ -164,8 +164,8 @@ public class PatientDTO {
 			return false;
 		PatientDTO other = (PatientDTO) obj;
 		return Objects.equals(addres, other.addres) && Objects.equals(alergy, other.alergy)
-				&& Objects.equals(birthDate, other.birthDate) && Objects.equals(countryId, other.countryId)
-				&& Objects.equals(countryName, other.countryName) && Objects.equals(dniNie, other.dniNie)
+				&& Objects.equals(birthDate, other.birthDate) && Objects.equals(provinceId, other.provinceId)
+				&& Objects.equals(provinceName, other.provinceName) && Objects.equals(dniNie, other.dniNie)
 				&& Objects.equals(email, other.email) && Objects.equals(habit, other.habit)
 				&& Objects.equals(id, other.id) && Objects.equals(localityId, other.localityId)
 				&& Objects.equals(localityName, other.localityName) && Objects.equals(name, other.name)
@@ -178,8 +178,8 @@ public class PatientDTO {
 		return "PatientDTO [id=" + id + ", name=" + name + ", surname1=" + surname1 + ", surname2=" + surname2
 				+ ", birthDate=" + birthDate + ", alergy=" + alergy + ", habit=" + habit + ", dniNie=" + dniNie
 				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", addres=" + addres + ", localityId="
-				+ localityId + ", localityName=" + localityName + ", countryId=" + countryId + ", countryName="
-				+ countryName + "]";
+				+ localityId + ", localityName=" + localityName + ", countryId=" + provinceId + ", countryName="
+				+ provinceName + "]";
 	}
 
 }
